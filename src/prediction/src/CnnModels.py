@@ -137,7 +137,7 @@ class CnnModels:
 
 	# ------------------------------------------------------------------------
 	# Baseline Model with Multilayer Perceptrons
-	def baselineMlp(self): 
+	def baselineMlp(self,  index=6): 
 		# fix random seed for reproducibility
 		seed = 7
 		np.random.seed(seed)
@@ -184,7 +184,7 @@ class CnnModels:
 	(there is still a lot of margin for parameter tuning).
 	16 seconds per epoch on a GRID K520 GPU.
 	"""
-	def mnist_cnn_modified(self):
+	def mnist_cnn_modified(self,  index=6):
 		## 1) Load Data ##
 		# dirs and paths
 		file_path = "models/weights-best.hdf5"
@@ -283,7 +283,8 @@ class CnnModels:
 		prediction = np.argmax(prediction, axis=None, out=None)
 		input_label = np.argmax(input_label, axis=None, out=None)
 
-		# output
+		# output mnist_cnn_modified
+		print("Verion: mnist_cnn_modified")
 		print("prediction: %s" % (prediction,))
 		print("real label: %s" % (input_label,))
 		return input_label, prediction

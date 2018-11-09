@@ -25,6 +25,8 @@ from PIL import Image
 import time
 import os
 
+BILD_SPEICHER = False
+
 class SubscribePicture:
 	def __init__(self):
 		self.cv_bridge = CvBridge()
@@ -37,15 +39,13 @@ class SubscribePicture:
 	    print(data.data)
 	    print("Ende!")
 	    
-    	    '''
-	    # speichern als Bild zum Testen
-	    # os.chdir ("bilder")
-	    filename="daten"+zeit+".jpg"
-	    imageDaten=open(filename, 'w')
-	    imageDaten.write(data.data)
-	    imageDaten.close()
-	    '''
-
+		# speichern als Bild zum Testen
+    	if  BILD_SPEICHER:
+			# os.chdir ("bilder")
+			filename="daten"+zeit+".jpg"
+			imageDaten=open(filename, 'w')
+			imageDaten.write(data.data)
+			imageDaten.close()
 
 	def subscribe_data(self, verbose=0):
     		## Class Subsciber: http://docs.ros.org/electric/api/rospy/html/rospy.topics.Subscriber-class.html
