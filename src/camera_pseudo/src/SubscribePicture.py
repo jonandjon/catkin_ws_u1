@@ -41,6 +41,7 @@ class SubscribePicture:
 	    
 		# speichern als Bild zum Testen
     	if  BILD_SPEICHER:
+			zeit=time.strftime("%H:%M:%S")			
 			# os.chdir ("bilder")
 			filename="daten"+zeit+".jpg"
 			imageDaten=open(filename, 'w')
@@ -52,7 +53,7 @@ class SubscribePicture:
     		rospy.Subscriber('/camera/output/specific/compressed_img_msgs',
 			 	CompressedImage,
 				self.imageCallback,
-				queue_size = 10,
+				queue_size = 1,
 				buff_size=62720 ) ## # 6272 per picture
 
     		rospy.spin()  ##simply keeps python from exiting until this node is stopped

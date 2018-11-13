@@ -129,12 +129,11 @@ class CameraPseudo:
             success, frame = self.input_stream.read()
             msg_frame = self.cv_bridge.cv2_to_compressed_imgmsg(frame)
             self.publisher_webcam_comprs.publish(msg_frame.header, msg_frame.format, msg_frame.data)
-
+			
             if verbose:
                 rospy.loginfo(msg_frame.header.seq)
                 rospy.loginfo(msg_frame.format)
-
-
+		
 def main():
     verbose = 0  # use 1 for debug
 

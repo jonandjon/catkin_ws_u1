@@ -71,7 +71,7 @@ class CnnModels:
 			model.add(Dropout(0.2))
 			model.add(Flatten())
 			model.add(Dense(128, activation='relu'))
-			model.add(Dense(num_classes, activation='relu'))  ## softamx erst ab tensorflow==1.4 verfuegbar # softmax
+			model.add(Dense(num_classes, activation='softmax'))  ## softamx erst ab tensorflow==1.4 verfuegbar # softmax
 			# Compile model
 			model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 			## model.compile(loss=keras.losses.categorical_crossentropy, optimizer=keras.optimizers.Adadelta(), metrics=['accuracy'])
@@ -229,7 +229,7 @@ class CnnModels:
 		model.add(Dense(units=128, activation='relu'))
 		model.add(Dropout(rate=0.5))
 		## model.add(Dense(units=num_classes,activation='softmax' )) # -> Fehler softmax ungueltig
-		model.add(Dense(units=num_classes, activation='relu' )) # relu -> Tensor
+		model.add(Dense(units=num_classes, activation='softmax' )) # relu -> Tensor
 		# https://keras.io/layers/core/ # https://keras.io/activations/
 
 		## 3) Compile Model ##
@@ -267,7 +267,7 @@ class CnnModels:
 		print('Test loss:', score[0])
 		print('Test accuracy:', score[1])
 
-		###  x) Extras  ##  ##  ##  ##  ##
+		## 6) Predict Picture-Content ##  ##  ##  ##  ##
 
 		# data to choose
 		index = 6

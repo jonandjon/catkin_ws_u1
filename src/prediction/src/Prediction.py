@@ -62,7 +62,7 @@ class Prediction:
     ## * vom Subscriber mit dem topic: /camera/output/specific/check
     ##   um das Validierungsergebnis zu empfangen
     def callbackVerifyPrediction(self, verify):
- 	print("callback: verify : %s" % (verify,))
+ 		print("callback: verify : %s" % (verify,))
 
 ## --------------------------------------------------------------------------------------------
 def main():
@@ -80,7 +80,8 @@ def main():
 		## Trainingsmodell und Vorhersagemethode wird aufgerufen
 		inputLabel=4 	# fuer Test
 		predictionLabel=1 # fuer Test
-		inputLabel, predictionLabel= cnnPred.scnnMnist(imageIndex)
+		## inputLabel, predictionLabel= cnnPred.scnnMnist(imageIndex)
+		inputLabel, predictionLabel= cnnPred.mnist_cnn_modified(imageIndex)
 		# Ausgabe
 		print("---------------------------------------------")
 		print(" Index des zu identifizierenden Bildes: %s" % (imageIndex,)) 
