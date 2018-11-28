@@ -9,7 +9,7 @@ from keras.datasets import mnist
 from sensor_msgs.msg import CompressedImage
 from std_msgs.msg import Bool, Int32
 
-PUBLISH_RATE = 5 # hz
+PUBLISH_RATE = 1 # hz
 USE_WEBCAM = True
 
 

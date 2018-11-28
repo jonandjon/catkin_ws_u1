@@ -90,7 +90,7 @@ def main():
 		print("=============================================")
 		# Publish your predicted number
 		pred.publisherPredictionNumber.publish(predictionLabel) ## possible too direct
-	    ## zum Test und zur Anschauung
+		## zum Test und zur Anschauung
 		pred.saveBild(imageIndex)
 
 	
