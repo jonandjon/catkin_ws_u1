@@ -1,6 +1,9 @@
 #!/usr/bin/env python
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> originGitHub/master
 from __future__ import absolute_import #++
 from __future__ import division		#++
 
@@ -30,7 +33,11 @@ k.set_image_dim_ordering( 'th' )
 # params
 batch_size = 128
 num_classes = 10
+<<<<<<< HEAD
 epochs = 1 ## 10 # 12   ## fuer Test Wert reduziert
+=======
+epochs = 10 ## 10 # 12   ## fuer Test Wert reduziert
+>>>>>>> originGitHub/master
 verbose_train = 1 # 2
 verbose_eval = 0
 

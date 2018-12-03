@@ -133,7 +133,8 @@ class CameraPseudo:
             if verbose:
                 rospy.loginfo(msg_frame.header.seq)
                 rospy.loginfo(msg_frame.format)
-		
+
+
 def main():
     verbose = 0  # use 1 for debug
 

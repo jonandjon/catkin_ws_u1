@@ -1,8 +1,5 @@
 #!/usr/bin/env python
-<<<<<<< HEAD
 
-=======
->>>>>>> originGitHub/master
 import cv2
 import rospy
 import tensorflow as tf
@@ -65,11 +62,7 @@ class Prediction:
     ## * vom Subscriber mit dem topic: /camera/output/specific/check
     ##   um das Validierungsergebnis zu empfangen
     def callbackVerifyPrediction(self, verify):
-<<<<<<< HEAD
  		print("callback: verify : %s" % (verify,))
-=======
- 		print("callback verify : %s" % (verify,))
->>>>>>> originGitHub/master
 
 ## --------------------------------------------------------------------------------------------
 def main():
@@ -97,11 +90,7 @@ def main():
 		print("=============================================")
 		# Publish your predicted number
 		pred.publisherPredictionNumber.publish(predictionLabel) ## possible too direct
-<<<<<<< HEAD
 		## zum Test und zur Anschauung
-=======
-	        ## zum Test und zur Anschauung
->>>>>>> originGitHub/master
 		pred.saveBild(imageIndex)
 
 	

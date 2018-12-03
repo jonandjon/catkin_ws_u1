@@ -29,6 +29,16 @@ class SubscribeImages:
 		self.cv_bridge = CvBridge()
 		print("Subscribe data (Konstruktor)")
 
+		'''
+		self.subscriberImage=rospy.Subscriber(name='/camera/output/random/compressed_img_msgs',
+			data_class=CompressedImage,
+			callback=self.imageCallback,
+			# callback_args=self.true,
+			queue_size = 10,
+			buff_size=62720) ## # 6272 per picture
+			'''
+
+
 	def saveImageFile(self,picture, nummer):
 		# speichern als Bild
 		# os.chdir ("bilder")
@@ -50,18 +60,24 @@ class SubscribeImages:
 	def imageNumberCallback(self, num, picture):
 		rospy.loginfo(rospy.get_caller_id() + 'SubscribeImages heard %3s. %s ',str(num), picture.data)
 		print("SubscribeImages received images!")
-		# print(str(num.data)+". "+picture.data) # zum TEST
-        print("num.data: "+str(num.data))
+
+		print(str(num.data)+". "+picture.data) # zum TEST
+        ## print("num.data: "+str(num.data))
 		## self.saveImageFile(picture, num) # zum Test
  
  	def subscribe_image(self, verbose=0):
 		## Class Subsciber: http://docs.ros.org/electric/api/rospy/html/rospy.topics.Subscriber-class.html
+
+		print(str(num.data)+". "+picture.data)
+		self.saveImageFile(picture, num)
+ 
+ 	def subscribe_image(self, verbose=0):
+    	## Class Subsciber: http://docs.ros.org/electric/api/rospy/html/rospy.topics.Subscriber-class.html
 		rospy.Subscriber(name='/camera/output/random/compressed_img_msgs',
 			data_class=CompressedImage,
 			callback=self.imageCallbackSubsribeNumber,
 			queue_size = 1,
 			buff_size=6272) ## # 6272 per picture
-
 		rospy.spin()  ##simply keeps python from exiting until this node is stopped
 
 def main():
