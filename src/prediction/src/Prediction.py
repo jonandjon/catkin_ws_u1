@@ -1,8 +1,4 @@
 #!/usr/bin/env python
-<<<<<<< HEAD
-
-=======
->>>>>>> originGitHub/master
 import cv2
 import rospy
 import tensorflow as tf
@@ -23,13 +19,13 @@ import time
 import os
 ## os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 import tensorflow as tf
-import CnnModels  # meine Klasse
+import CnnModels  # mein Modul mit Klassen
 ## from thread import start_new_thread 
 ## from threading import Thread
 
-# Vorhersageklasse: 
+''' Vorhersageklasse: '''
 class Prediction:
-    # Konstruktor	 	
+    ''' Konstruktor	 '''	
     def __init__(self):
         self.cv_bridge = CvBridge()
 	print("Hier ist der Konstruktor")
@@ -46,34 +42,30 @@ class Prediction:
 								queue_size = 1,
 								buff_size=1)
 
-    ## Methoden der Klasse
-    ## a) Hilfsmethoden
-    # Speichert ein Bild der Trainings-Menge mit Index	
-    def saveBild(self, imageIndex):  ## for test
-	(self.imagesTrain, self.labelsTrain), (self.imagesTest, self.labelsTest) = mnist.load_data()
-	npArrayBild=np.expand_dims(self.imagesTest[imageIndex], axis=0) 
-	label=self.labelsTest[imageIndex]
-	## wandle in ein Bild um
-	bild=Image.fromarray(npArrayBild[0])
-	# speichert das Bild mit dem Dateinamen
-	zeit=time.strftime("%H:%M:%S")
-	filenameTrain="B"+str(imageIndex) +"L"+str(label)+"_"+zeit+".jpg"
-	bild.save(filenameTrain)
-	bild.close()
-    # -------------------------------------------------------------------------------	
-    # * Kommunikationsmethoden
-    ## * vom Subscriber mit dem topic: /camera/output/specific/check
-    ##   um das Validierungsergebnis zu empfangen
-    def callbackVerifyPrediction(self, verify):
-<<<<<<< HEAD
- 		print("callback: verify : %s" % (verify,))
-=======
- 		print("callback verify : %s" % (verify,))
->>>>>>> originGitHub/master
 
-## --------------------------------------------------------------------------------------------
+    ''' Methoden der Klasse
+    ## a) Hilfsmethoden
+    # Speichert ein Bild der Trainings-Menge mit Index	'''
+    def saveBild(self, imageIndex):  ## for test
+		(self.imagesTrain, self.labelsTrain), (self.imagesTest, self.labelsTest) = mnist.load_data()
+		npArrayBild=np.expand_dims(self.imagesTest[imageIndex], axis=0) 
+		label=self.labelsTest[imageIndex]
+		## wandle in ein Bild um
+		bild=Image.fromarray(npArrayBild[0])
+		# speichert das Bild mit dem Dateinamen
+		zeit=time.strftime("%H:%M:%S")
+		filenameTrain="B"+str(imageIndex) +"L"+str(label)+"_"+zeit+".jpg"
+		bild.save(filenameTrain)
+		bild.close()
+    	
+    ''' * Kommunikationsmethoden
+        * vom Subscriber mit dem topic: /camera/output/specific/check
+          um das Validierungsergebnis zu empfangen '''
+    def callbackVerifyPrediction(self, verify):
+ 		print("callback verify : %s" % (verify,))
+
+''' -------------------------------------------------------------------------------------------- '''
 def main():
-  
     try:
 		print("try in main")
 		# register node
@@ -81,28 +73,33 @@ def main():
 		# init Prediction
 		pred = Prediction()
 		## Instanz der Modul.Klasse mit cnn ...
-		cnnPred=CnnModels.CnnModels()
+		''' Ziffern, Internetvariante '''
+		### cnn=CnnModels.MnistScnn()
+		''' Zffern -  HTW-Version '''
+		### cnn=CnnModels.MnistCnn()
+		''' Farbbilder mit 32 x 32 pixel  '''
+		cnn=CnnModels.Cifar10scnn()
 		##  Bild aus der Trainingsmenge wird ausgewaehlt 
 		imageIndex=6 # wie in Camera Pseudo (es ist uebrigend die Ziffer 4 die zu erkennen ist)
-		## Trainingsmodell und Vorhersagemethode wird aufgerufen
-		inputLabel=4 	# fuer Test
-		predictionLabel=1 # fuer Test
-		## inputLabel, predictionLabel= cnnPred.scnnMnist(imageIndex)
-		inputLabel, predictionLabel= cnnPred.mnist_cnn_modified(imageIndex)
-		# Ausgabe
-		print("---------------------------------------------")
+		### Trainingsmodell, DEEP LEARNING TRAINING '''
+		#?# cnn.modified()
+		### Predict an Images  '''
+		inputLabel, predictionLabel= cnn.predictTestImage(imageIndex)
+		print("--- print in prediction.py -----------------")
 		print(" Index des zu identifizierenden Bildes: %s" % (imageIndex,)) 
 		print(" Label des zu identifizierenden Bildes: %s" % (inputLabel,))
 		print(" Label des prediction Bild:           : %s" % (predictionLabel,))
 		print("=============================================")
 		# Publish your predicted number
 		pred.publisherPredictionNumber.publish(predictionLabel) ## possible too direct
-<<<<<<< HEAD
-		## zum Test und zur Anschauung
-=======
-	        ## zum Test und zur Anschauung
->>>>>>> originGitHub/master
+		
+	    ## zum Test und zur Anschauung
 		pred.saveBild(imageIndex)
+		
+	    ### Andere Variante: hole die Test und die Trainingsdaten
+		#+# (imagesTrain, labelsTrain), (imagesTest, labelsTest) = cnn.loadData()
+		## # Erkenne ein einzelnes Bild
+		#+# predictionLabel= cnn.predictImage(imagesTest[imageIndex])
 
 	
 		rospy.spin()
