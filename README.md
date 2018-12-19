@@ -2,10 +2,11 @@
 Jonas H.
 19.12.2018
 ## ROS, Deep Learning
-- Kommunikation zwischen mehreren Applikationen mit ROS
+- Kommunikation zwischen mehreren Applikationen (Nodse) mit ROS über Topics
 - Ziffernerkennung (Bildarchiv "mnist", Bibliothek: "keras")
 - Objekteerkennung (Bildarchiv "Cifar10")
 - Einbindung einer Webcam zur Bilderfassung
 
-### --> Siehe "SOLUTION/U_SOLUTION.md"
+### Dokumentation  : Siehe "SOLUTION/U_SOLUTION.md"
+### Pyton-Programme: Siehe Pakete "prediction" und "camera_pseudo"
 
