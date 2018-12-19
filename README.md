@@ -8,5 +8,5 @@ Jonas H.
 - Einbindung einer Webcam zur Bilderfassung
 
 ### Dokumentation  : Siehe "SOLUTION/U_SOLUTION.md"
-### Pyton-Programme: Siehe Pakete "prediction" und "camera_pseudo"
+### Python-Programme: Siehe Pakete "prediction" und "camera_pseudo"
 
