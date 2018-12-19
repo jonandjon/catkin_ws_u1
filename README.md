@@ -7,5 +7,5 @@ Jonas H.
 - Objekteerkennung (Bildarchiv "Cifar10")
 - Einbindung einer Webcam zur Bilderfassung
 
-## Siehe "SOLUTION/U_SOLUTION.md"
+### --> Siehe "SOLUTION/U_SOLUTION.md"
 
