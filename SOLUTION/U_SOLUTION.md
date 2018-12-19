@@ -61,12 +61,12 @@ Die Grafik ist auch hier wieder als Bild der Anlage zu finden [CameraPseudo--Sub
 --------------------------------------------------------------------------------
 ### 4.1 Make use of ROS network capability and use publishing camera data on one device and predicting on another (see ROS network tutorial therefore: "http://wiki.ros.org/ROS/Tutorials/MultipleMachines", do not use plain python. Use ROS on both machines/VMs)
 Die Umsetzun dieser Aufgabe erfordert eine entsprechende Versuchsumgebung bestehend aus zwei Computern mit dem Betriebssysystem Ubuntu. Auf beiden Systemen wurden ROS und weitere notwendige Bibliotheken installiert.
-* 			Computer 1			Computer 2
-- Name  : 	space				itubuntu
-- User  : 	heinke				itjonas
+* 		Computer 1				Computer 2
+- Name  : 	space					itubuntu
+- User  : 	heinke					itjonas
 - PW    : 	jon					itjonas
-- IP    : 	192.168.178.38		192.168178.36
-- Master:   $ roscore			-----------
+- IP    : 	192.168.178.38				192.168178.36
+- Master:   	$ roscore				-----------
 Beide Computer befinden sich in einem Netz, verbunden mittels einer Fritz.box.
 Die Erreichbarkeit lässt sich mit $ping computername zum Beispiel mit $ping itubuntu prüfen.
 Die Antwort ist entsprechend: 64 bytes from itubuntu.fritz.box (192.168.178.36): icmp_seq=8 ttl=64 time=0.167 ms
