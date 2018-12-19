@@ -7,6 +7,7 @@
 ## Teil 1
 -------------------------------------------------------------------------------
 ### 1.1) Make yourself familiar with all the existing code. But especially with 'catkin_ws/src/camera_pseudo/src/CameraPseudo.py' and 'ai_train/mnist_cnn_modified.py'
+<-- $ rosrun camera_pseudo CameraPseudo.py -->
 Programm CameraPseudo.py: Es handelt sich um ein lauffähiges Python-Programm inklusiv einer Main und einer Klasse CameraPseudo. Der Konstruktor der Klasse definiert mehrere Publishers (Talker) und einen Subscriber (Listener).
 Die Publisherbezeichnungen, zum Beispiel: "self.publisher_specific_comprs", werden zum Aufruf innerhalb des Quellprogramms benötigt. Wichtige Parameter sind der Name des Topics, der Datentyp der Nachricht und gegebenfalls die Anzahl der Queue-Elemente. Weitere Parameter können vereinbart werden. Diese können auf der Seite "http://docs.ros.org/melodic/api/rospy/html/rospy.topics.Publisher-class.html" nachgelesen werden.
 Ein Subscriber zum Empfang von Daten ist im Konstruktor vereinbart. Die wichtigsten Parameter sind der Topic (von dort werden die Daten abgeholt), der Datentyp der zu empfangenden Daten und ganz wichtig, die Bezeichnung der aufzurufenden Callbackmethode (http://docs.ros.org/melodic/api/rospy/html/rospy.topics.Subscriber-class.html). Die Callbackmethode wird im Falle eines Datenstroms aufgerufen und abgearbeitet. Ihr wird standardmäßig der Empfangsparameter übergeben. Sofern der Parameter "callback_args" parametriert worden ist, empfängt die Callbackmethode diesen als zweiten Wert.
