@@ -7,6 +7,8 @@ Jonas H.
 - Objekteerkennung (Bildarchiv "Cifar10")
 - Einbindung einer Webcam zur Bilderfassung
 
+Test 2 aenderung jonas
+
 ### Dokumentation  : Siehe "SOLUTION/U_SOLUTION.md"
 ### Python-Programme: Siehe Pakete "src/prediction" und "src/camera_pseudo"
 
